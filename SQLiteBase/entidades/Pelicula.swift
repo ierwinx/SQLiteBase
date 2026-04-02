@@ -9,6 +9,31 @@ struct Pelicula {
     var idPais: Int?
     var idDirector: Int?
 
+    var genero: Genero {
+        let repository = GeneroRepository()
+        guard let id = self.idGenero, let genero = repository.get(id: id) else {
+            return Genero(nombre: "")
+        }
+        return genero
+    }
+    
+    var pais: Pais {
+        let repository = PaisRepository()
+        guard let id = self.idPais, let genero = repository.get(id: id) else {
+            return Pais(nombre: "", codigo: "")
+        }
+        return genero
+    }
+    
+    var director: Director {
+        let repository = DirectorRepository()
+        guard let id = self.idPais, let genero = repository.get(id: id) else {
+            return Director(nombre: "", apellido: "")
+        }
+        return genero
+    }
+    
+
     init(
         idPelicula: Int = 0,
         titulo: String,

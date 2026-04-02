@@ -34,7 +34,7 @@ class ViewController: UIViewController {
         print("[Seed] Insertando datos iniciales...")
 
         // ── 1. GÉNEROS ──────────────────────────────────────────────────
-        let idAccion   = Int(generoRepo.save(Genero(nombre: "Acción",         descripcion: "Películas con mucha adrenalina")))
+        _   = Int(generoRepo.save(Genero(nombre: "Acción", descripcion: "Películas con mucha adrenalina")))
         let idDrama    = Int(generoRepo.save(Genero(nombre: "Drama",          descripcion: "Historias emotivas y reflexivas")))
         let idSciFi    = Int(generoRepo.save(Genero(nombre: "Ciencia Ficción",descripcion: "Futuros posibles e imposibles")))
         let idThriller = Int(generoRepo.save(Genero(nombre: "Thriller",       descripcion: "Suspenso y tensión constante")))
@@ -42,7 +42,7 @@ class ViewController: UIViewController {
         // ── 2. PAÍSES ────────────────────────────────────────────────────
         let idUSA = Int(paisRepo.save(Pais(nombre: "Estados Unidos", codigo: "US")))
         let idUK  = Int(paisRepo.save(Pais(nombre: "Reino Unido",    codigo: "GB")))
-        let idFRA = Int(paisRepo.save(Pais(nombre: "Francia",        codigo: "FR")))
+        _ = Int(paisRepo.save(Pais(nombre: "Francia",        codigo: "FR")))
 
         // ── 3. DIRECTORES ────────────────────────────────────────────────
         let idNolan   = Int(directorRepo.save(Director(nombre: "Christopher", apellido: "Nolan",   nacionalidad: "Británico")))
@@ -201,6 +201,10 @@ class ViewController: UIViewController {
         
         peliculaRepo.update(peli)
         print(peliculaRepo.get(id: 1)?.toString() ?? "")
+        
+        print(peli.genero.toString())
+        print(peli.pais.toString())
+        print(peli.director.toString())
     }
     
 }
